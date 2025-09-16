@@ -39,14 +39,11 @@ def send_message_as(
         timeout=10,
         context="send_message_as",
     )
-
-    # Check for a successful response
-    if isinstance(response, dict):
-        return True
+    if response == True:
+        logging.debug(f"[send_message_as] Message sent to {recipient_email}")
     else:
-        logging.error(f"Failed to send message: {response}")
-        return False
-
+        logging.debug(f"[send_message_as] Failed to send message to {recipient_email}")
+    return response
 
 
 def retrieve_message(
@@ -83,7 +80,7 @@ def retrieve_message(
         )
 
         if isinstance(response, dict) and response.get("value"):
-            logging.info(f"Message found in folder: {folder_name}")
+            logging.info(f"[retrieve_message] Message found in folder: {folder_name}")
             return response, folder_name
 
     logging.warning(f"Message ID \"{internet_message_id}\" not found in any folder for user \"{user_principal_name}\".")
