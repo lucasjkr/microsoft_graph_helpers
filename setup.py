@@ -7,7 +7,7 @@ setup(
     author='Lucas Krupinski',
     packages=find_packages(),
     install_requires=[
-        'requests'
+        'requests>=2.32.5'
     ],
-    python_requires='>=3.6',
+    python_requires='>=3.12',
 )
