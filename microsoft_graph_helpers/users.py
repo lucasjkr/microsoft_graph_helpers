@@ -64,7 +64,7 @@ def reset_ms_password(bearer_token, user_principal_name, password):
         logging.debug(f"reset_ms_password] Failed to reset password for {user_principal_name}.")
         return False
     logging.debug(f"[reset_ms_password] Reset password for {user_principal_name}.")
-    return False
+    return True
 
 
 def get_user_direct_group_memberships(bearer_token, user_principal_name):
